@@ -17,8 +17,8 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	ar -rc $(NAME) $^
+$(NAME): $(OBJS) ft_printf.h
+	ar -rcs $(NAME) $^
 
 clean:
 	rm -f $(OBJS)

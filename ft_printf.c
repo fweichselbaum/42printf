@@ -6,7 +6,7 @@
 /*   By: fweichse <fweichse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:03:09 by fweichse          #+#    #+#             */
-/*   Updated: 2023/09/11 18:21:59 by fweichse         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:56:55 by fweichse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	handle_args(char c, va_list args)
 		return (ft_putnbr(va_arg(args, unsigned int), "0123456789ABCDEF"));
 	else if (c == '%' || c == '\0')
 		return (ft_putchar('%'));
-	return (0);
+	return (ft_putchar('%') + ft_putchar(c));
 }
 
 int	ft_printf(const char *format, ...)
@@ -39,6 +39,8 @@ int	ft_printf(const char *format, ...)
 	int		bytes;
 
 	bytes = 0;
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	while (*format)
 	{
